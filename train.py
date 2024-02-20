@@ -3,8 +3,8 @@
 python train.py --gpu_id [insert gpu id] --bs 4 --epochs 700\
 --lr 0.0001 --checkpoint_path ./checkpoints/ --log_path ./logs/ --data_path [dataset path(images)] --label_path [dataset path(labels)]
 
-e.g) 데이터셋 : argoverse dataset
-python train.py --gpu_id 2 --bs 4 --epochs 700 --lr 0.0001 --checkpoint_path ./checkpoints/ --log_path ./logs/ --data_path /Data1/hm/DRAEM_TRAIN_DATASET/argoverse/images --label_path /Data1/hm/DRAEM_TRAIN_DATASET/argoverse/labels
+e.g) Dataset : argoverse dataset
+python train.py --gpu_id 2 --bs 4 --epochs 700 --lr 0.0001 --checkpoint_path ./checkpoints/ --log_path ./logs/ --data_path ./dataset/images --label_path ./dataset/labels
            
 '''
 import torch
@@ -163,18 +163,18 @@ if __name__=="__main__":
     import argparse
     parser = argparse.ArgumentParser()
     
-    parser.add_argument('--bs', action='store', type=int, default = 2, required=False)
+    parser.add_argument('--bs', action='store', type=int, default = 32, required=False)
     parser.add_argument('--lr', action='store', type=float, default = 0.0001, required=False)
-    parser.add_argument('--epochs', action='store', type=int, default = 700, required=False)
+    parser.add_argument('--epochs', action='store', type=int, default = 2000, required=False)
     parser.add_argument('--gpu_id', action='store', type=int, default=0, required=False)
     
     parser.add_argument('--checkpoint_path', action='store', type=str, default = './checkpoints/', required=False)
     parser.add_argument('--log_path', action='store', type=str, default = './logs/', required=False)
     parser.add_argument('--visualize', action='store_true')
     
-    parser.add_argument('--data_path', default='/Data1/hm/OD_SHIELD/datasets/argoverse/train/images') # modify the dataset images path
-    parser.add_argument('--label_path', default='/Data1/hm/OD_SHIELD/datasets/argoverse/train/labels') # modify the dataset labels path
-    parser.add_argument('--patch_paths', default='/Data1/hm/OD_SHIELD/patch/patch_sample') 
+    parser.add_argument('--data_path', default='./datasets/images') # modify the dataset images path
+    parser.add_argument('--label_path', default='./datasets/labels') # modify the dataset labels path
+    parser.add_argument('--patch_paths', default='./patch/patch_sample') 
 
     args = parser.parse_args()
 
