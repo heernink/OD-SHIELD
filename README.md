@@ -1,5 +1,9 @@
 # OD-SHEILD
 PyTorch Implementation of __OD-SHIELD__
+<p align="center">
+  <img src="https://github.com/heernink/OD-SHIELD/assets/75311780/e32fde16-008d-4494-bc5c-cd760a70c0ac" width="600" height="400"/>
+</p>
+
 
 ## Datasets
 To learn OD-SHIELD, three datasets were used: COCO DATASET, VISDRONE DATASET, and ARGOVERSE DATASET. While the COCO DATASET contains various objects, the ARGOVERSE DATASET and VISDRONE DATASET are focused on traffic scenarios. Therefore, to effectively defend against attacks in autonomous driving situations, OD-SHIELD were trained by reducing the COCO DATASET classes to four: HUMAN, CAR, TRUCK, and BUS (the code for this preprocessing is not provided). When you run the `download_dataset.sh` script, the datasets will be downloaded to the given path, and for training OD-SHIELD, the downloaded datasets should be structured with subfolders under ./XXXX directory: ./XXXX/images and ./XXXX/labels.
@@ -8,6 +12,10 @@ To learn OD-SHIELD, three datasets were used: COCO DATASET, VISDRONE DATASET, an
 ```
 ## Training 
 OD-SHIELD provides diversity in experiments through the addition of various arguments via the `train.py` file. The paths to the image files and label files of the dataset are provided as arguments following `--data_path` and `--label_path`, respectively. Additionally, batch size, learning rate, and the number of epochs for the dataset can be specified by arguments following `--bs`, `--lr`, and `--epochs`, allowing experiments to be conducted tailored to each computing environment. The trained model is saved at the path specified by `--checkpoint_path`, with the model's training being saved by default every 100 iterations. If visualizing the training process of the model through TensorBoard is desired, the `--visualize` flag can be set, and the training records can be received in log file format from `--log_path`. 
+<p align="center">
+  <img src="https://github.com/heernink/OD-SHIELD/assets/75311780/d9f7a957-78d8-41b9-ba94-9947e469c0cf" width="800" height="300"/>
+</p>
+
 
 ## Patch
 OD-SHIELD utilizes various adversarial patches for training. The paths to these patches are located in the directory `./patch/sample_patches`, and patches are randomly selected from here for training. If the user has custom patches for training, they can specify the paths to these custom patches in `train.py` using the `--patch_paths` argument. Below is an example training code file. 
