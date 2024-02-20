@@ -134,8 +134,8 @@ def run(
         plots=True,
         callbacks=Callbacks(),
         compute_loss=None,
-        patch_path='/Data1/hm/DRAEM_TRAIN_PATCH',
-        model_path='/Data1/hm/DRAEM_FINAL_PICKLE_LOSS/argoverse_old',
+        patch_path='./patch/patch_sample',
+        model_path='./argoverse_old',
         od_shield=True
 ):
     # Initialize/load model and set device
@@ -414,8 +414,8 @@ def parse_opt():
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
     parser.add_argument('--half', action='store_true', help='use FP16 half-precision inference')
     parser.add_argument('--dnn', action='store_true', help='use OpenCV DNN for ONNX inference')
-    parser.add_argument('--patch_path', default='/Data1/hm/OD_SHIELD/patch/patch_sample')
-    parser.add_argument('--model_path', default='/Data1/hm/OD_SHIELD/checkpoints/20240219_1658_1.pckl')
+    parser.add_argument('--patch_path', default='./patch/patch_sample')
+    parser.add_argument('--model_path', default='./checkpoints/20240219_1658_1.pckl')
     parser.add_argument('--od_shield', action='store_true', help='use to defense adversarial patch attack')
     opt = parser.parse_args()
     opt.data = check_yaml(opt.data)  # check YAML
