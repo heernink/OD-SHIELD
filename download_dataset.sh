@@ -1,3 +1,4 @@
+mkdir datasets
 cd datasets
 
 # Download argoverse dataset
