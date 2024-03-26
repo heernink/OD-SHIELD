@@ -24,7 +24,7 @@ OD-SHIELD provides diversity in experiments through the addition of various argu
 OD-SHIELD utilizes various adversarial patches for training. The paths to these patches are located in the directory `./patch/patch_sample`, and patches are randomly selected from here for training. If the user has custom patches for training, they can specify the paths to these custom patches in `train.py` using the `--patch_paths` argument. Below is an example training code file. 
 
 ```
-train.py --bs 16 --lr 0.001 --epochs 1200 --gpu_id 0 --checkpoint_path ./checkpoints --log_path ./logs --visualize --data_path ./datasets/images --label_path ./datasets/labels --patch_paths ./patch/patch_sample 
+python train.py --bs 16 --lr 0.001 --epochs 1200 --gpu_id 0 --checkpoint_path ./checkpoints --log_path ./logs --visualize --data_path ./datasets/images --label_path ./datasets/labels --patch_paths ./patch/patch_sample 
 ```
 ---
 ## Evaluating
